@@ -27,6 +27,8 @@ function getroms(rom){
       jarak = file.roms.havoc_mod.length;
     } else if (rom == "aosplime") {
       jarak = file.roms.aosplime.length;
+    } else if (rom == "pearlos") {
+      jarak = file.roms.pearlos.length;
     } else if (rom == "yukakernel") {
       jarak = file.roms.yukakernel.length;
     }
@@ -38,6 +40,9 @@ function getroms(rom){
       } else if (rom == "aosplime") {
         myapi = myapi.aosplime[i];
         tbody_base = document.getElementById("tbody-aosplime");
+      } else if (rom == "pearlos") {
+        myapi = myapi.pearlos[i];
+        tbody_base = document.getElementById("tbody-pearlos");
       } else if (rom == "yukakernel") {
         myapi = myapi.yukakernel[i];
         tbody_base = document.getElementById("tbody-yukakernel");
