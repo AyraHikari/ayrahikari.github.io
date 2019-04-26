@@ -16,44 +16,45 @@ function getbuilds(flid) {
   request.send();
 };
 
-function getroms(rom){
+function getroms(){
   let api = 'https://cors.io/?http://142.93.233.141:33507/api/getroms';
   let request = new XMLHttpRequest();
   request.open('GET', api);
 
   request.onload = function(){
     let file = JSON.parse(request.responseText);
-    if (rom == "havoc_mod") {
-      jarak = file.roms.havoc_mod.length;
-    } else if (rom == "aosplime") {
-      jarak = file.roms.aosplime.length;
-    } else if (rom == "pearlos") {
-      jarak = file.roms.pearlos.length;
-    } else if (rom == "yukakernel") {
-      jarak = file.roms.yukakernel.length;
-    }
-    for (i = 0; i < jarak; i++) {
-      let myapi = file.roms;
+    allrom = ["havoc_mod", "pearlos", "yukakernel"]
+    for (x = 0; x < allrom.length; x++) {
+      rom = allrom[x]
       if (rom == "havoc_mod") {
-        myapi = myapi.havoc_mod[i];
-        tbody_base = document.getElementById("tbody-havoc_mod");
+        jarak = file.roms.havoc_mod.length;
       } else if (rom == "aosplime") {
-        myapi = myapi.aosplime[i];
-        tbody_base = document.getElementById("tbody-aosplime");
+        jarak = file.roms.aosplime.length;
       } else if (rom == "pearlos") {
-        myapi = myapi.pearlos[i];
-        tbody_base = document.getElementById("tbody-pearlos");
+        jarak = file.roms.pearlos.length;
       } else if (rom == "yukakernel") {
-        myapi = myapi.yukakernel[i];
-        tbody_base = document.getElementById("tbody-yukakernel");
+        jarak = file.roms.yukakernel.length;
       }
-      
-      let my_date = convertdate(myapi.upload_date);
-      let my_size = (myapi.file_size / 1048576).toFixed(0) + "MB";
+      for (i = 0; i < jarak; i++) {
+        let myapi = file.roms;
+        if (rom == "havoc_mod") {
+          myapi = myapi.havoc_mod[i];
+          tbody_base = document.getElementById("tbody-havoc_mod");
+        } else if (rom == "pearlos") {
+          myapi = myapi.pearlos[i];
+          tbody_base = document.getElementById("tbody-pearlos");
+        } else if (rom == "yukakernel") {
+          myapi = myapi.yukakernel[i];
+          tbody_base = document.getElementById("tbody-yukakernel");
+        }
+        
+        let my_date = convertdate(myapi.upload_date);
+        let my_size = (myapi.file_size / 1048576).toFixed(0) + "MB";
 
-      globalapprends(myapi.name, myapi.url, my_date, my_size);
-      collapsible();
-      };
+        globalapprends(myapi.name, myapi.url, my_date, my_size);
+        collapsible();
+        };
+      }
     }
     request.send();
 };
