@@ -28,8 +28,6 @@ function getroms(){
       rom = allrom[x]
       if (rom == "havoc_mod") {
         jarak = file.roms.havoc_mod.length;
-      } else if (rom == "aosplime") {
-        jarak = file.roms.aosplime.length;
       } else if (rom == "pearlos") {
         jarak = file.roms.pearlos.length;
       } else if (rom == "yukakernel") {
