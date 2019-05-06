@@ -57,6 +57,60 @@ function getroms(){
     request.send();
 };
 
+function getgameserver(){
+  let api = 'https://cors.io/?http://104.248.229.33:7800/v2/server/status';
+  let request = new XMLHttpRequest();
+  request.open('GET', api);
+
+  request.onload = function(){
+    let myapi = JSON.parse(request.responseText);
+    status = myapi.status;
+    nameworld = myapi.world;
+    serverport = myapi.port;
+    players = myapi.playercount;
+    maxplayers = myapi.maxplayers;
+    serverpass = myapi.serverpassword;
+    serverversion = myapi.serverversion;
+    serveruptime = myapi.uptime;
+
+    tbody_status_color = document.getElementById("tserver-color");
+    if (status == "200") {
+      tbody_status_color.setAttribute("style", "color:green");
+      serverstatus = 'Online';
+    } else {
+      tbody_status_color.setAttribute("style", "color:red");
+      serverstatus = 'Offline';
+    }
+    tbody_status = document.getElementById("tbody-terraria-status");
+    tr_status = tbody_status.replaceWith(serverstatus);
+    tbody_status = document.getElementById("tbody-terraria-world");
+    tr_status = tbody_status.replaceWith(nameworld);
+    tbody_status = document.getElementById("tbody-terraria-ipaddr");
+    tr_status = tbody_status.replaceWith("104.248.229.33:" + serverport);
+    tbody_status = document.getElementById("tbody-terraria-player");
+    tr_status = tbody_status.replaceWith(players + "/" + maxplayers);
+    tbody_status = document.getElementById("tbody-terraria-pass");
+    tbody_pass_color = document.getElementById("tserver-pass-color");
+    if (serverpass == false) {
+      tbody_pass_color.setAttribute("style", "color:green");
+      serverpasswd = 'No password needded';
+    } else {
+      tbody_pass_color.setAttribute("style", "color:red");
+      serverpasswd = 'Password is needed';
+    }
+    tr_status = tbody_status.replaceWith(serverpasswd);
+    tbody_status = document.getElementById("tbody-terraria-ver");
+    tr_status = tbody_status.replaceWith(serverversion);
+    tbody_status = document.getElementById("tbody-terraria-uptime");
+    tr_status = tbody_status.replaceWith(serveruptime);
+    collapsible();
+  }
+  request.send();
+
+  
+
+};
+
 function globalapprends(name, url, date, size){
   trbase = document.createElement("tr");
   tbody_base.appendChild(trbase);

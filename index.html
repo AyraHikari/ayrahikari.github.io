@@ -80,6 +80,76 @@
         <div class="mdl-layout__tab-panel is-active" id="home">
            <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell--12-col">
+            <!-- Server game -->
+              <div>
+                <h4><i class="fa fa-gamepad"></i> My Games Server</h4>
+                <ul>
+                <ul>
+                <div>
+                  <ul class="collapsible popout">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">games</i>Terraria</div>
+              <div class="collapsible-body"><span>
+                  <table>
+                    <thead>
+                      <tr>
+                          <th>Server Status</th>
+                          <td id="tserver-color"><i id="tbody-terraria-status">Loading...</i></td>
+                      </tr>
+                      <tr>
+                          <th>World Name</th>
+                          <td><i id="tbody-terraria-world">Loading...</i></td>
+                      </tr>
+                      <tr>
+                          <th>Server IP Address</th>
+                          <td><i id="tbody-terraria-ipaddr">Loading...</i></td>
+                      </tr>
+                      <tr>
+                          <th>Server Players</th>
+                          <td><i id="tbody-terraria-player">Loading...</i></td>
+                      </tr>
+                      <tr>
+                          <th>Server Password</th>
+                          <td id="tserver-pass-color"><i id="tbody-terraria-pass">Loading...</i></td>
+                      </tr>
+                      <tr>
+                          <th>Server Version</th>
+                          <td><i id="tbody-terraria-ver">Loading...</i></td>
+                      </tr>
+                      <tr>
+                          <th>Server Uptime</th>
+                          <td><i id="tbody-terraria-uptime">Loading...</i></td>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody-terraria">
+                    </tbody>
+                  </table>
+                </span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">games</i>Bombsquad</div>
+              <div class="collapsible-body"><span>
+                  <table>
+                    <thead>
+                      <tr>
+                          <th>Server Status</th>
+                          <td style="color:red;">Offline</td>
+                      </tr>
+                      <tr>
+                          <th>Note</th>
+                          <td>Server is currently offline</td>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody-terraria">
+                    </tbody>
+                  </table>
+                </span></div>
+            </li>
+          </ul>
+            </div>
+           </ul>
+           </ul>
+              </div>
               <!-- Telegram bots -->
               <div>
                 <h4><i class="fab fa-telegram"></i> My Telegram Bots</h4>
@@ -242,6 +312,7 @@
     </div>
     <script src="roms/scripts.js"></script>
     <script>getroms();</script>
+    <script>getgameserver();</script>
     <!--
     <script>getroms("havoc_mod");</script>
     <script>getroms("pearlos");</script>
