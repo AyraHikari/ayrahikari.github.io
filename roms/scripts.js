@@ -23,13 +23,17 @@ function getroms(){
 
   request.onload = function(){
     let file = JSON.parse(request.responseText);
-    allrom = ["havoc_mod", "pearlos", "yukakernel"]
+    allrom = ["havoc_mod", "pearlos", "yukakernel", "aosip", "derpfest"]
     for (x = 0; x < allrom.length; x++) {
       rom = allrom[x]
       if (rom == "havoc_mod") {
         jarak = file.roms.havoc_mod.length;
       } else if (rom == "pearlos") {
         jarak = file.roms.pearlos.length;
+      } else if (rom == "aosip") {
+        jarak = file.roms.aosip.length;
+      } else if (rom == "derpfest") {
+        jarak = file.roms.aosip.length;
       } else if (rom == "yukakernel") {
         jarak = file.roms.yukakernel.length;
       }
@@ -41,6 +45,12 @@ function getroms(){
         } else if (rom == "pearlos") {
           myapi = myapi.pearlos[i];
           tbody_base = document.getElementById("tbody-pearlos");
+        } else if (rom == "aosip") {
+          myapi = myapi.aosip[i];
+          tbody_base = document.getElementById("tbody-aosip");
+        } else if (rom == "derpfest") {
+          myapi = myapi.derpfest[i];
+          tbody_base = document.getElementById("tbody-derpfest");
         } else if (rom == "yukakernel") {
           myapi = myapi.yukakernel[i];
           tbody_base = document.getElementById("tbody-yukakernel");
