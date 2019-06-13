@@ -1,5 +1,5 @@
 function getbuilds(flid) {
-  let api = 'https://cors.io/?https://androidfilehost.com/api/?action=folder&flid=' + flid;
+  let api = 'https://api.allorigins.win/raw?url=https://androidfilehost.com/api/?action=folder&flid=' + flid;
   let request = new XMLHttpRequest();
   request.open('GET', api);
   request.onload = function(){
@@ -17,7 +17,7 @@ function getbuilds(flid) {
 };
 
 function getroms(){
-  let api = 'https://cors.io/?http://142.93.233.141:33507/api/getroms';
+  let api = 'https://api.allorigins.win/raw?url=http://142.93.233.141:33507/api/getroms';
   let request = new XMLHttpRequest();
   request.open('GET', api);
 
@@ -68,7 +68,7 @@ function getroms(){
 };
 
 function getgameserver(){
-  let api = 'https://cors.io/?http://104.248.229.33:7800/v2/server/status';
+  let api = 'https://api.allorigins.win/raw?url=http://104.248.229.33:7800/v2/server/status';
   let request = new XMLHttpRequest();
   request.open('GET', api);
 
