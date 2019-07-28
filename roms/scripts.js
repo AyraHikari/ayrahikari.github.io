@@ -1,3 +1,12 @@
+function timeout(ms, promise) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      reject(new Error("timeout"))
+    }, ms)
+    promise.then(resolve, reject)
+  })
+}
+
 function getbuilds(flid) {
   let api = 'https://api.allorigins.win/raw?url=https://androidfilehost.com/api/?action=folder&flid=' + flid;
   let request = new XMLHttpRequest();
@@ -19,7 +28,13 @@ function getbuilds(flid) {
 function getroms(){
   let api = 'https://api.allorigins.win/raw?url=http://142.93.233.141:33507/api/getroms';
   let request = new XMLHttpRequest();
-  request.open('GET', api);
+
+  request.open('GET', api)
+  request.timeout = 4000;
+  request.ontimeout = function () {
+    alert("API Timeout!");
+    collapsible();
+  }
 
   request.onload = function(){
     let file = JSON.parse(request.responseText);
