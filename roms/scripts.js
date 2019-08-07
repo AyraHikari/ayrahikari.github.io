@@ -34,6 +34,8 @@ function getroms(){
   request.ontimeout = function () {
     alert("API Timeout!");
     collapsible();
+    var imgReplace = document.getElementsByClassName("my-api-image")[0];
+    imgReplace.src = "images/AyraHikari.png";
   }
 
   request.onload = function(){
