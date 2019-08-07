@@ -48,7 +48,7 @@ function getroms(){
       } else if (rom == "aosip") {
         jarak = file.roms.aosip.length;
       } else if (rom == "derpfest") {
-        jarak = file.roms.aosip.length;
+        jarak = file.roms.derpfest.length;
       } else if (rom == "yukakernel") {
         jarak = file.roms.yukakernel.length;
       }
