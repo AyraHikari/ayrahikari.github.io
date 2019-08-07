@@ -26,7 +26,7 @@ function getbuilds(flid) {
 };
 
 function getroms(){
-  let api = 'https://api.allorigins.win/raw?url=http://142.93.233.141:33507/api/getroms';
+  let api = 'https://api.allorigins.win/raw?url=http://107.172.29.149:33507/api/getroms';
   let request = new XMLHttpRequest();
 
   request.open('GET', api)
