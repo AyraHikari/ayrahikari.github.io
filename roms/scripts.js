@@ -163,3 +163,27 @@ function collapsible(){
   let elems = document.querySelectorAll('.collapsible');
   let instances = M.Collapsible.init(elems, Option);
 };
+
+function teleprofilepic(pic, num){
+  let api = 'https://api.allorigins.win/raw?url=http://107.172.29.149:33507/api/getprofile?profile='+pic;
+  let request = new XMLHttpRequest();
+  request.open('GET', api);
+  request.onload = function(){
+    let file = JSON.parse(request.responseText);
+    var imgReplace = document.getElementsByClassName("my-api-image")[parseInt(num)];
+      imgReplace.src = file.pic;
+  }
+  request.send();
+};
+
+function gitprofilepic(pic, num){
+  let api = 'https://api.allorigins.win/raw?url=http://107.172.29.149:33507/api/gitprofile?profile='+pic;
+  let request = new XMLHttpRequest();
+  request.open('GET', api);
+  request.onload = function(){
+    let file = JSON.parse(request.responseText);
+    var imgReplace = document.getElementsByClassName("my-api-image")[parseInt(num)];
+      imgReplace.src = file.pic;
+  }
+  request.send();
+};
