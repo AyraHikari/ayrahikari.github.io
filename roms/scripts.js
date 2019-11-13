@@ -8,7 +8,7 @@ function timeout(ms, promise) {
 }
 
 function getbuilds(flid) {
-  let api = 'https://api.allorigins.win/raw?url=https://androidfilehost.com/api/?action=folder&flid=' + flid;
+  let api = 'https://api.codetabs.com/v1/proxy?quest=https://androidfilehost.com/api/?action=folder&flid=' + flid;
   let request = new XMLHttpRequest();
   request.open('GET', api);
   request.onload = function(){
@@ -26,7 +26,7 @@ function getbuilds(flid) {
 };
 
 function getroms(){
-  let api = 'https://api.allorigins.win/raw?url=http://34.66.149.194:33507/api/getroms';
+  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getroms';
   let request = new XMLHttpRequest();
 
   request.open('GET', api)
@@ -85,7 +85,7 @@ function getroms(){
 };
 
 function getgameserver(){
-  let api = 'https://api.allorigins.win/raw?url=http://104.248.229.33:7800/v2/server/status';
+  let api = 'https://api.codetabs.com/v1/proxy?quest=http://104.248.229.33:7800/v2/server/status';
   let request = new XMLHttpRequest();
   request.open('GET', api);
 
@@ -167,7 +167,7 @@ function collapsible(){
 };
 
 function teleprofilepic(pic, num){
-  let api = 'https://api.allorigins.win/raw?url=http://34.66.149.194:33507/api/getprofile?profile='+pic;
+  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getprofile?profile='+pic;
   let request = new XMLHttpRequest();
   request.open('GET', api);
   request.onload = function(){
@@ -179,7 +179,7 @@ function teleprofilepic(pic, num){
 };
 
 function gitprofilepic(pic, num){
-  let api = 'https://api.allorigins.win/raw?url=http://34.66.149.194:33507/api/gitprofile?profile='+pic;
+  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/gitprofile?profile='+pic;
   let request = new XMLHttpRequest();
   request.open('GET', api);
   request.onload = function(){
