@@ -170,6 +170,32 @@ function teleprofilepic(pic, num){
   let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getprofile?profile='+pic;
   let request = new XMLHttpRequest();
   request.open('GET', api);
+  request.timeout = 2000;
+  request.ontimeout = function () {
+    collapsible();
+    var imgReplace = document.getElementsByClassName("my-api-image")[0];
+    imgReplace.src = "images/AyraHikari.png";
+  }
+
+  request.onload = function(){
+    let file = JSON.parse(request.responseText);
+    var imgReplace = document.getElementsByClassName("my-api-image")[parseInt(num)];
+      imgReplace.src = file.pic;
+  }
+  request.send();
+};
+
+
+function teleprofilepic_aboutme(pic, num){
+  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getprofile?profile='+pic;
+  let request = new XMLHttpRequest();
+  request.open('GET', api);
+  request.timeout = 2000;
+  request.ontimeout = function () {
+    var imgReplace = document.getElementsByClassName("my-api-image")[0];
+    imgReplace.src = "images/profile_img.ico";
+  }
+  
   request.onload = function(){
     let file = JSON.parse(request.responseText);
     var imgReplace = document.getElementsByClassName("my-api-image")[parseInt(num)];
