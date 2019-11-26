@@ -170,7 +170,7 @@ function teleprofilepic(pic, num){
   let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getprofile?profile='+pic;
   let request = new XMLHttpRequest();
   request.open('GET', api);
-  request.timeout = 2000;
+  request.timeout = 3000;
   request.ontimeout = function () {
     collapsible();
     var imgReplace = document.getElementsByClassName("my-api-image")[0];
@@ -190,7 +190,7 @@ function teleprofilepic_aboutme(pic, num){
   let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getprofile?profile='+pic;
   let request = new XMLHttpRequest();
   request.open('GET', api);
-  request.timeout = 2000;
+  request.timeout = 3000;
   request.ontimeout = function () {
     var imgReplace = document.getElementsByClassName("my-api-image")[0];
     imgReplace.src = "images/profile_img.ico";
