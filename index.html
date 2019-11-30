@@ -16,7 +16,8 @@
   limitations under the License
 -->
 <html lang="en">
-  <head>
+
+<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,43 +55,53 @@
     <link rel="stylesheet" href="https://getmdl.io/assets/main.css">
     <link rel="stylesheet" href="https://getmdl.io/material.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-  </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-	      <img class="my-api-image" id="rqlogo" src="https://media.giphy.com/media/M9eO5ajwszObC/giphy.gif" alt="AyraHikari" style="width:150px;height:150px;border-radius: 20px;padding: 2px;">
-          <h3>Ayra Hikari</h3>
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#home" class="mdl-layout__tab is-active">HOME</a>
-          <a href="donations.html" class="mdl-layout__tab">DONATIONS</a>
-          <a href="https://nusantaradevs.github.io/" class="mdl-layout__tab">NUSANTARA DEVS</a>
-          <a href="about.html" class="mdl-layout__tab">ABOUT ME</a>
-        </div>
-      </header>
-      <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="home">
-           <section class="section--center mdl-grid mdl-grid--no-spacing">
-            <div class="mdl-cell--12-col">
-            <!-- Server game -->
-              <div>
-                <h4><i class="fa fa-gamepad"></i> My Games Server</h4>
-                <ul>
-                <ul>
-                <div>
-                  <ul class="collapsible popout">
-            <li>
-              <div class="collapsible-header"><i class="material-icons">games</i>Terraria</div>
-              <div class="collapsible-body"><span>
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+            </div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row" id="my_photo_profile">
+	      		<img class="my-api-image" id="rqlogo" src="https://media.giphy.com/media/M9eO5ajwszObC/giphy.gif" alt="AyraHikari" style="width:150px;height:150px;border-radius: 20px;padding: 2px;">
+                <h3>Ayra Hikari</h3>
+                <script>
+                    const username = 'AyraHikari'
+                    fetch('https://api.codetabs.com/v1/proxy?quest=https://t.me/' + username)
+                        .then(async(res) => {
+                            const text = await res.text()
+                            const photo = /class="tgme_page_photo_image" src="(.+?)"/.exec(text)[1]
+                            document.getElementById("my_photo_profile").innerHTML = `<img class="my-api-image" id="rqlogo" src="${photo}" alt="AyraHikari" style="width:150px;height:150px;border-radius: 20px;padding: 2px;"><h3>Ayra Hikari</h3>`
+                        })
+                </script>
+            </div>
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+            </div>
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                <a href="#home" class="mdl-layout__tab is-active">HOME</a>
+                <a href="donations.html" class="mdl-layout__tab">DONATIONS</a>
+                <a href="https://nusantaradevs.github.io/" class="mdl-layout__tab">NUSANTARA DEVS</a>
+                <a href="about.html" class="mdl-layout__tab">ABOUT ME</a>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div class="mdl-layout__tab-panel is-active" id="home">
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell--12-col">
+                        <!-- Server game -->
+                        <div>
+                            <h4><i class="fa fa-gamepad"></i> My Games Server</h4>
+                            <ul>
+                                <ul>
+                                    <div>
+                                        <ul class="collapsible popout">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">games</i>Terraria</div>
+                                                <div class="collapsible-body"><span>
                   <table>
                     <thead>
                       <tr>
@@ -126,10 +137,10 @@
                     </tbody>
                   </table>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">games</i>Bombsquad</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">games</i>Bombsquad</div>
+                                                <div class="collapsible-body"><span>
                   <table>
                     <thead>
                       <tr>
@@ -145,124 +156,128 @@
                     </tbody>
                   </table>
                 </span></div>
-            </li>
-          </ul>
-            </div>
-           </ul>
-           </ul>
-              </div>
-              <!-- Telegram bots -->
-              <div>
-                <h4><i class="fab fa-telegram"></i> My Telegram Bots</h4>
-                <ul>
-                <ul>
-                <div>
-              	  <ul class="collapsible popout">
-				    <li>
-				      <div class="collapsible-header"><i class="material-icons">person_pin</i>Emilia Hikari - Group Manager Bot</div>
-				      <div class="collapsible-body"><span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </ul>
+                        </div>
+                        <!-- Telegram bots -->
+                        <div>
+                            <h4><i class="fab fa-telegram"></i> My Telegram Bots</h4>
+                            <ul>
+                                <ul>
+                                    <div>
+                                        <ul class="collapsible popout">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">person_pin</i>Emilia Hikari - Group Manager Bot</div>
+                                                <div class="collapsible-body"><span>
 					  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/EmiliaHikariBot"><i class="fab fa-telegram"></i>&nbsp; Check on Telegram</a><br><br>
                 </span></div>
-				    </li>
-				    <li>
-				      <div class="collapsible-header"><i class="material-icons">record_voice_over</i>Kurohara Yui - Anime and Reverse Image Manager Bot</div>
-				      <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">record_voice_over</i>Kurohara Yui - Anime and Reverse Image Manager Bot</div>
+                                                <div class="collapsible-body"><span>
 					  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/YuiChanBot"><i class="fab fa-telegram"></i>&nbsp; Check on Telegram</a><br><br>
                 </span></div>
-				    </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">settings_cell</i>Splash Maker - Splash Screen Maker for several devices</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">settings_cell</i>Splash Maker - Splash Screen Maker for several devices</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/splashmakerbot"><i class="fab fa-telegram"></i>&nbsp; Check on Telegram</a><br><br>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">live_help</i>Ayra's Android Helper - Android Helper with rich features made with Python script</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">live_help</i>Ayra's Android Helper - Android Helper with rich features made with Python script</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/AyraAndroidBot"><i class="fab fa-telegram"></i>&nbsp; Check on Telegram</a><br><br>
                 </span></div>
-            </li>
-				  </ul>
-		       	</div>
-		       </ul>
-		   	   </ul>
-              </div>
-              <div>
-                <h4><i class="fab fa-telegram"></i> My Telegram Channels</h4>
-                <ul>
-                <ul>
-                <div>
-                  <ul class="collapsible popout">
-            <li>
-              <div class="collapsible-header"><i class="material-icons">notifications_active</i>Anime Update Indonesia</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4><i class="fab fa-telegram"></i> My Telegram Channels</h4>
+                            <ul>
+                                <ul>
+                                    <div>
+                                        <ul class="collapsible popout">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">notifications_active</i>Anime Update Indonesia</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/AnimeUpdateIndonesia"><i class="fab fa-telegram"></i>&nbsp; Follow on Telegram</a><br><br>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/AnimeUpdateIndonesia"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">cloud_download</i>Anime Download Indonesia</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">cloud_download</i>Anime Download Indonesia</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/AnimeDownloadID"><i class="fab fa-telegram"></i>&nbsp; Follow on Telegram</a><br><br>
                 </span>
-              <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/AnimeDownloadID"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">notifications_active</i>TKDN Kemenperin - Kementerian Perindustrian</div>
-              <div class="collapsible-body"><span>
+                                                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/AnimeDownloadID"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a>
+                                                    <br>
+                                                    <br>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">notifications_active</i>TKDN Kemenperin - Kementerian Perindustrian</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/TKDNKemenperin"><i class="fab fa-telegram"></i>&nbsp; Follow on Telegram</a><br><br>
                 </span>
-              <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/TKDNKemenperin"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
-                </span>
-              </div>
-            </li>
-            
-            <li>
-              <div class="collapsible-header"><i class="material-icons">people</i>1CAK on Telegram</div>
-              <div class="collapsible-body"><span>
+                                                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/TKDNKemenperin"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a>
+                                                    <br>
+                                                    <br>
+                                                    </span>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">people</i>1CAK on Telegram</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="http://t.me/onecakindo"><i class="fab fa-telegram"></i>&nbsp; Follow on Telegram</a><br><br>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/onecakindo"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">system_update</i>Ayra's Project Channel</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">system_update</i>Ayra's Project Channel</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/AyraProject"><i class="fas fa-user-friends"></i>&nbsp; Follow on Telegram</a><br><br>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/AyraProject"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">notifications_active</i>Ayra's Bot Updates</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">notifications_active</i>Ayra's Bot Updates</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/AyraBotNews"><i class="fas fa-user-friends"></i>&nbsp; Follow on Telegram</a><br><br>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/AyraBotNews"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fab fa-android"></i>WhatsApp Stickers Store</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="fab fa-android"></i>WhatsApp Stickers Store</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/WhatsAppStickersAyra"><i class="fas fa-user-friends"></i>&nbsp; Follow on Telegram</a><br><br>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://t.me/s/WhatsAppStickersAyra"><i class="fab fa-chrome"></i>&nbsp; Open with your Browser</a><br><br>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://ayrahikari.github.io/WhatsappStickerStore/"><i class="fas fa-download"></i>&nbsp; Download Sticker Store</a><br><br>
                 </span></div>
-            </li>
-          </ul>
-            </div>
-           </ul>
-           </ul>
-              </div>
-              <!-- Custom ROM -->
-              <div>
-                <h4><i class="fab fa-android"></i> My ROM Builds</h4>
-                <ul>
-                <ul>
-                <div>
-                  <ul class="collapsible popout">
-            <li>
-              <div class="collapsible-header"><i class="material-icons">cloud_download</i>AOSiP Derpfest | Xiaomi Redmi 3S (land)</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </ul>
+                        </div>
+                        <!-- Custom ROM -->
+                        <div>
+                            <h4><i class="fab fa-android"></i> My ROM Builds</h4>
+                            <ul>
+                                <ul>
+                                    <div>
+                                        <ul class="collapsible popout">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">cloud_download</i>AOSiP Derpfest | Xiaomi Redmi 3S (land)</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://sourceforge.net/projects/ayra-roms/files/AOSiP-derpfest/"><i class="zmdi zmdi-collection-text"></i>&nbsp; Download from Sourceforge</a><br><br>
                 <table>
                     <thead>
@@ -276,10 +291,10 @@
                         </tbody>
                       </table>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">cloud_download</i>AOSiP | Xiaomi Redmi 3S (land)</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">cloud_download</i>AOSiP | Xiaomi Redmi 3S (land)</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://sourceforge.net/projects/team-nad/files/ROMS/land/AOSiP/"><i class="zmdi zmdi-collection-text"></i>&nbsp; Download from Sourceforge</a><br><br>
                 <table>
                     <thead>
@@ -293,10 +308,10 @@
                         </tbody>
                       </table>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">cloud_download</i>Havoc-Mod | Xiaomi Redmi 3S (land)</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">cloud_download</i>Havoc-Mod | Xiaomi Redmi 3S (land)</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://sourceforge.net/projects/havoc-mod/files/land/"><i class="zmdi zmdi-collection-text"></i>&nbsp; Download from Sourceforge</a><br><br>
                 <table>
                     <thead>
@@ -310,10 +325,10 @@
                         </tbody>
                       </table>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">cloud_download</i>Pearl OS | Xiaomi Redmi 3S (land)</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">cloud_download</i>Pearl OS | Xiaomi Redmi 3S (land)</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://sourceforge.net/projects/team-nad/files/ROMS/land/PearlOS/"><i class="zmdi zmdi-collection-text"></i>&nbsp; Download from Sourceforge</a><br><br>
                 <table>
                     <thead>
@@ -327,22 +342,22 @@
                         </tbody>
                       </table>
                 </span></div>
-            </li>
-          </ul>
-            </div>
-           </ul>
-           </ul>
-              </div>
-              <!-- Others -->
-              <div>
-                <h4><i class="fab fa-apple"></i> My Other Projects</h4>
-                <ul>
-                <ul>
-                <div>
-                  <ul class="collapsible popout">
-            <li>
-              <div class="collapsible-header"><i class="fab fa-android"></i>Yuka Kernel | Xiaomi Redmi 3S (land)</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </ul>
+                        </div>
+                        <!-- Others -->
+                        <div>
+                            <h4><i class="fab fa-apple"></i> My Other Projects</h4>
+                            <ul>
+                                <ul>
+                                    <div>
+                                        <ul class="collapsible popout">
+                                            <li>
+                                                <div class="collapsible-header"><i class="fab fa-android"></i>Yuka Kernel | Xiaomi Redmi 3S (land)</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://github.com/AyraHikari/Yuka-Kernel"><i class="fab fa-github-alt"></i>&nbsp; Fork on Github</a><br><br>
                 <table>
                     <thead>
@@ -356,59 +371,65 @@
                         </tbody>
                       </table>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fab fa-github"></i>My Huawei Mifi Checker</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="fab fa-github"></i>My Huawei Mifi Checker</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://github.com/AyraHikari/My-Huawei-Mifi"><i class="fab fa-github-alt"></i>&nbsp; Check on Github</a><br><br>
                 </span></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="fab fa-android"></i>Asus Zenfone 4 Experience - Magisk Modules</div>
-              <div class="collapsible-body"><span>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="fab fa-android"></i>Asus Zenfone 4 Experience - Magisk Modules</div>
+                                                <div class="collapsible-body"><span>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" target="_blank" href="https://github.com/AyraHikari/Yuka-Kernel"><i class="material-icons">cloud_download</i>&nbsp; Download on Github</a><br><br>
                 </span></div>
-            </li>
-          </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="Mr7ae_rp" data-limit="5" data-height="300" data-dislikes="1" data-outlined="1"></script>
+                </section>
             </div>
-           </ul>
-           </ul>
-              </div>
-            </div>
-            <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="Mr7ae_rp" data-limit="5" data-height="300" data-dislikes="1" data-outlined="1"></script>
-        	</section>
-        </div><br><br>
-        <footer class="page-footer mdl-color--grey-900">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Like my work? Consider donating to help me continue!</h5>
-                <p><form action="https://www.paypal.me/AyraHikari" target="_top">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" name="submit"><i class="zmdi zmdi-paypal"></i><a class="white-text">&nbsp; Donate via PayPal</a></button>
-				</form></p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a target="_blank" href="https://forum.xda-developers.com/member.php?u=7879802" title="XDA" class="mdl-color-text--white" role="button"><i class="fab fa-dev"></i>  XDA</a></li>
-                  <li><a target="_blank" href="https://github.com/AyraHikari" title="GitHub" class="mdl-color-text--white" role="button"><i class="fab fa-github"></i>  GitHub</a></li>
-                  <li><a target="_blank" href="https://facebook.com/tedy.ramdani.50" title="Facebook" class="mdl-color-text--white " role="button"><i class="fab fa-facebook"></i>  Facebook</a></li>
-                  <li><a target="_blank" href="https://telegram.me/AyraHikari" title="Telegram" class="mdl-color-text--white" role="button"><i class="fab fa-telegram"></i>  Telegram</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright mdl-color--grey-900">
-            <div class="container">
-            Copyright &copy; 2019 Ayra Hikari - Powered by&nbsp;<a target="_blank" href="https://getmdl.io/">Material Design Lite</a> and&nbsp;<a target="_blank" href="https://materializecss.com">MaterializeCSS</a> 
-            </div>
-          </div>
-        </footer>
-      </main>
+            <br>
+            <br>
+            <footer class="page-footer mdl-color--grey-900">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Like my work? Consider donating to help me continue!</h5>
+                            <p>
+                                <form action="https://www.paypal.me/AyraHikari" target="_top">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" name="submit"><i class="zmdi zmdi-paypal"></i><a class="white-text">&nbsp; Donate via PayPal</a></button>
+                                </form>
+                            </p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                            <h5 class="white-text">Links</h5>
+                            <ul>
+                                <li><a target="_blank" href="https://forum.xda-developers.com/member.php?u=7879802" title="XDA" class="mdl-color-text--white" role="button"><i class="fab fa-dev"></i>  XDA</a></li>
+                                <li><a target="_blank" href="https://github.com/AyraHikari" title="GitHub" class="mdl-color-text--white" role="button"><i class="fab fa-github"></i>  GitHub</a></li>
+                                <li><a target="_blank" href="https://facebook.com/tedy.ramdani.50" title="Facebook" class="mdl-color-text--white " role="button"><i class="fab fa-facebook"></i>  Facebook</a></li>
+                                <li><a target="_blank" href="https://telegram.me/AyraHikari" title="Telegram" class="mdl-color-text--white" role="button"><i class="fab fa-telegram"></i>  Telegram</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright mdl-color--grey-900">
+                    <div class="container">
+                        Copyright &copy; 2019 Ayra Hikari - Powered by&nbsp;<a target="_blank" href="https://getmdl.io/">Material Design Lite</a> and&nbsp;<a target="_blank" href="https://materializecss.com">MaterializeCSS</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
     </div>
     <script src="roms/scripts.js"></script>
-    <script>getroms();</script>
-    <script>teleprofilepic("AyraHikari", "0");</script>
+    <script>
+        getroms();
+    </script>
+
     <!-- <script>getgameserver();</script> -->
     <!--
     <script>getroms("havoc_mod");</script>
@@ -422,5 +443,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
-  </body>
+</body>
+
 </html>

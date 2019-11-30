@@ -1,113 +1,131 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ayra Hikari</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/floatmenu.css">
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ayra Hikari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/floatmenu.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-  <!-- Floating Menu -->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Floating Menu -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
+
 <body>
-  <div id="particles-js">
-    <div class="main-content">
-      <figure>
-        <img class="my-api-image" src="https://www.ngahr.com/wp-content/uploads/2018/11/ajax-spinner.gif" alt="Ayra Hikari" style="border-radius: 50%; width: 192px; height: 192px;">
-      </figure>
-      <h1>Tedy Ramdani</h1>
-      <h2>Ayra Hikari</h2>
-      <ul class="social">
-        <li><a href="https://github.com/AyraHikari" target="_blank"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://t.me/AyraHikari" target="_blank"><i class="fab fa-telegram"></i></a></li>
-        <li><a href="https://www.facebook.com/tedy.ramdani.50" target="_blank"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="https://forum.xda-developers.com/member.php?u=7879802" target="_blank">XDA</a></li>
-      </ul>
+    <div id="particles-js">
+        <div class="main-content">
+            <figure>
+                <div id="my_photo_profile">
+                    <img class="my-api-image" src="https://www.ngahr.com/wp-content/uploads/2018/11/ajax-spinner.gif" alt="Ayra Hikari" style="border-radius: 50%; width: 192px; height: 192px;">
+                    <script>
+                        const username = 'AyraHikari'
+                        fetch('https://api.codetabs.com/v1/proxy?quest=https://t.me/' + username)
+                            .then(async(res) => {
+                                const text = await res.text()
+                                const photo = /class="tgme_page_photo_image" src="(.+?)"/.exec(text)[1]
+                                document.getElementById("my_photo_profile").innerHTML = `<img class="my-api-image" src="${photo}" alt="Ayra Hikari" style="border-radius: 50%; width: 192px; height: 192px;">`
+                            })
+                    </script>
+                </div>
+            </figure>
+            <h1>Tedy Ramdani</h1>
+            <h2>Ayra Hikari</h2>
+            <ul class="social">
+                <li><a href="https://github.com/AyraHikari" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://t.me/AyraHikari" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                <li><a href="https://www.facebook.com/tedy.ramdani.50" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://forum.xda-developers.com/member.php?u=7879802" target="_blank">XDA</a></li>
+            </ul>
+        </div>
+        <footer id="footer">
+            &copy; 2019 Ayra Hikari
+        </footer>
+
     </div>
-    <footer id="footer">
-      &copy; 2019 Ayra Hikari
-    </footer>
 
-  </div>
+    <!-- Particles Script-->
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
 
-  <!-- Particles Script-->
-  <script src="js/particles.js"></script>
-  <script src="js/app.js"></script>
-  
-  <!-- Floating Menu Script -->
-  <script type="text/javascript"
-  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script></div>
-  <div id='ss_menu'>
-    <div onclick="myhref('https://www.facebook.com/tedy.ramdani.50');"> <i class="fa fa-facebook-official"></i> </div>
-    <div onclick="myhref('https://t.me/AyraHikari');"> <i class="fab fa-telegram"></i> </div>
-    <div onclick="myhref('https://www.linkedin.com/in/tedyramdani/');"> <i class="fa fa-linkedin"></i> </div>
-    <div onclick="myhref('index.html');"> <i class="fa fa-home"></i> </div>
-    <div class='menu'>
-      <div class='share' id='ss_toggle' data-rot='180'>
-        <div class='circle'></div>
-        <div class='bar'></div>
-      </div>
+    <!-- Floating Menu Script -->
+    <script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
-  <script>
-  $(document).ready(function(ev) {
-    var toggle = $('#ss_toggle');
-    var menu = $('#ss_menu');
-    var rot;
-    
-    $('#ss_toggle').on('click', function(ev) {
-      rot = parseInt($(this).data('rot')) - 180;
-      menu.css('transform', 'rotate(' + rot + 'deg)');
-      menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
-      if ((rot / 180) % 2 == 0) {
-        //Moving in
-        toggle.parent().addClass('ss_active');
-        toggle.addClass('close');
-      } else {
-        //Moving Out
-        toggle.parent().removeClass('ss_active');
-        toggle.removeClass('close');
-      }
-      $(this).data('rot', rot);
-    });
+    <div id='ss_menu'>
+        <div onclick="myhref('https://www.facebook.com/tedy.ramdani.50');"> <i class="fa fa-facebook-official"></i> </div>
+        <div onclick="myhref('https://t.me/AyraHikari');"> <i class="fab fa-telegram"></i> </div>
+        <div onclick="myhref('https://www.linkedin.com/in/tedyramdani/');"> <i class="fa fa-linkedin"></i> </div>
+        <div onclick="myhref('index.html');"> <i class="fa fa-home"></i> </div>
+        <div class='menu'>
+            <div class='share' id='ss_toggle' data-rot='180'>
+                <div class='circle'></div>
+                <div class='bar'></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        $(document).ready(function(ev) {
+            var toggle = $('#ss_toggle');
+            var menu = $('#ss_menu');
+            var rot;
 
-    menu.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
-      if ((rot / 180) % 2 == 0) {
-        $('#ss_menu div i').addClass('ss_animate');
-      } else {
-        $('#ss_menu div i').removeClass('ss_animate');
-      }
-    });
-    
-  });
-  </script>
-  <script type="text/javascript">
+            $('#ss_toggle').on('click', function(ev) {
+                rot = parseInt($(this).data('rot')) - 180;
+                menu.css('transform', 'rotate(' + rot + 'deg)');
+                menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
+                if ((rot / 180) % 2 == 0) {
+                    //Moving in
+                    toggle.parent().addClass('ss_active');
+                    toggle.addClass('close');
+                } else {
+                    //Moving Out
+                    toggle.parent().removeClass('ss_active');
+                    toggle.removeClass('close');
+                }
+                $(this).data('rot', rot);
+            });
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
+            menu.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
+                if ((rot / 180) % 2 == 0) {
+                    $('#ss_menu div i').addClass('ss_animate');
+                } else {
+                    $('#ss_menu div i').removeClass('ss_animate');
+                }
+            });
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+        });
+    </script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
 
-  </script>
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 
-  <script type="text/javascript">
-    function myhref(web){
-      window.location.href = web;}
-  </script>
-  <script src="roms/scripts.js"></script>
-  <script>teleprofilepic("AyraHikari", "0");</script>
+    <script type="text/javascript">
+        function myhref(web) {
+            window.location.href = web;
+        }
+    </script>
+    <script src="roms/scripts.js"></script>
+    <script>
+        teleprofilepic("AyraHikari", "0");
+    </script>
 </body>
+
 </html>
