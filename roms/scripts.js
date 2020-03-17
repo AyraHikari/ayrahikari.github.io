@@ -26,115 +26,24 @@ function getbuilds(flid) {
 };
 
 function getroms(){
-  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getroms';
-  let request = new XMLHttpRequest();
-
-  request.open('GET', api)
-  request.timeout = 6000;
-  request.ontimeout = function () {
-    alert("API Timeout!");
-    collapsible();
-    var imgReplace = document.getElementsByClassName("my-api-image")[0];
-    imgReplace.src = "images/AyraHikari.png";
+  myroms = ["tbody-havoc_mod|havoc-mod|land", "tbody-yukakernel|yukakernel|Land", "tbody-pearlos|team-nad|ROMS/land/PearlOS", "tbody-aosip|team-nad|ROMS/land/AOSiP", "tbody-derpfest|team-nad|ROMS/land/AOSiP-Derpfest"]
+  for (x = 0; x < myroms.length; x++) {
+    let tbody = myroms[x].split("|")[0];
+    fetch('https://api.codetabs.com/v1/proxy?quest=https://sourceforge.net/projects/' + myroms[x].split("|")[1] + '/rss?path=/' + myroms[x].split("|")[2])
+      .then(response => response.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const items = data.querySelectorAll("item");
+        items.forEach(el => {
+          tbody_base = document.getElementById(tbody);
+          globalapprends(el.querySelector("title").innerHTML, el.querySelector("link").innerHTML, el.querySelector("pubDate").innerHTML, (parseInt(el.innerHTML.split('filesize="')[1].split('">')[0]) / 1048576).toFixed(0) + "MB");
+          collapsible();
+        });
+      });
   }
-
-  request.onload = function(){
-    let file = JSON.parse(request.responseText);
-    allrom = ["havoc_mod", "pearlos", "yukakernel", "aosip", "derpfest"]
-    for (x = 0; x < allrom.length; x++) {
-      rom = allrom[x]
-      if (rom == "havoc_mod") {
-        jarak = file.roms.havoc_mod.length;
-      } else if (rom == "pearlos") {
-        jarak = file.roms.pearlos.length;
-      } else if (rom == "aosip") {
-        jarak = file.roms.aosip.length;
-      } else if (rom == "derpfest") {
-        jarak = file.roms.derpfest.length;
-      } else if (rom == "yukakernel") {
-        jarak = file.roms.yukakernel.length;
-      }
-      for (i = 0; i < jarak; i++) {
-        let myapi = file.roms;
-        if (rom == "havoc_mod") {
-          myapi = myapi.havoc_mod[i];
-          tbody_base = document.getElementById("tbody-havoc_mod");
-        } else if (rom == "pearlos") {
-          myapi = myapi.pearlos[i];
-          tbody_base = document.getElementById("tbody-pearlos");
-        } else if (rom == "aosip") {
-          myapi = myapi.aosip[i];
-          tbody_base = document.getElementById("tbody-aosip");
-        } else if (rom == "derpfest") {
-          myapi = myapi.derpfest[i];
-          tbody_base = document.getElementById("tbody-derpfest");
-        } else if (rom == "yukakernel") {
-          myapi = myapi.yukakernel[i];
-          tbody_base = document.getElementById("tbody-yukakernel");
-        }
-        
-        let my_date = convertdate(myapi.upload_date);
-        let my_size = (myapi.file_size / 1048576).toFixed(0) + "MB";
-
-        globalapprends(myapi.name, myapi.url, my_date, my_size);
-        collapsible();
-        };
-      }
-    }
-    request.send();
 };
 
 function getgameserver(){
-  let api = 'https://api.codetabs.com/v1/proxy?quest=http://104.248.229.33:7800/v2/server/status';
-  let request = new XMLHttpRequest();
-  request.open('GET', api);
-
-  request.onload = function(){
-    let myapi = JSON.parse(request.responseText);
-    status = myapi.status;
-    nameworld = myapi.world;
-    serverport = myapi.port;
-    players = myapi.playercount;
-    maxplayers = myapi.maxplayers;
-    serverpass = myapi.serverpassword;
-    serverversion = myapi.serverversion;
-    serveruptime = myapi.uptime;
-
-    tbody_status_color = document.getElementById("tserver-color");
-    if (status == "200") {
-      tbody_status_color.setAttribute("style", "color:green");
-      serverstatus = 'Online';
-    } else {
-      tbody_status_color.setAttribute("style", "color:red");
-      serverstatus = 'Offline';
-    }
-    tbody_status = document.getElementById("tbody-terraria-status");
-    tr_status = tbody_status.replaceWith(serverstatus);
-    tbody_status = document.getElementById("tbody-terraria-world");
-    tr_status = tbody_status.replaceWith(nameworld);
-    tbody_status = document.getElementById("tbody-terraria-ipaddr");
-    tr_status = tbody_status.replaceWith("104.248.229.33:" + serverport);
-    tbody_status = document.getElementById("tbody-terraria-player");
-    tr_status = tbody_status.replaceWith(players + "/" + maxplayers);
-    tbody_status = document.getElementById("tbody-terraria-pass");
-    tbody_pass_color = document.getElementById("tserver-pass-color");
-    if (serverpass == false) {
-      tbody_pass_color.setAttribute("style", "color:green");
-      serverpasswd = 'No password needded';
-    } else {
-      tbody_pass_color.setAttribute("style", "color:red");
-      serverpasswd = 'Password is needed';
-    }
-    tr_status = tbody_status.replaceWith(serverpasswd);
-    tbody_status = document.getElementById("tbody-terraria-ver");
-    tr_status = tbody_status.replaceWith(serverversion);
-    tbody_status = document.getElementById("tbody-terraria-uptime");
-    tr_status = tbody_status.replaceWith(serveruptime);
-    collapsible();
-  }
-  request.send();
-
-  
 
 };
 
@@ -144,7 +53,7 @@ function globalapprends(name, url, date, size){
   td01 = document.createElement("td");
   trbase.appendChild(td01);
   a01 = document.createElement("a");
-  a01.innerHTML = name;
+  a01.innerHTML = name.split("<![CDATA[")[1].split("/").reverse()[0].split("]]>")[0];
   a01.setAttribute("href", url);
   td01.appendChild(a01);
   td02 = document.createElement("td");
@@ -166,32 +75,3 @@ function collapsible(){
   let instances = M.Collapsible.init(elems, Option);
 };
 
-function teleprofilepic(pic, num){
-  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/getprofile?profile='+pic;
-  let request = new XMLHttpRequest();
-  request.open('GET', api);
-  request.timeout = 6000;
-  request.ontimeout = function () {
-    var imgReplace = document.getElementsByClassName("my-api-image")[0];
-    imgReplace.src = "images/AyraHikari.png";
-  }
-
-  request.onload = function(){
-    let file = JSON.parse(request.responseText);
-    var imgReplace = document.getElementsByClassName("my-api-image")[parseInt(num)];
-      imgReplace.src = file.pic;
-  }
-  request.send();
-};
-
-function gitprofilepic(pic, num){
-  let api = 'https://api.codetabs.com/v1/proxy?quest=http://34.66.149.194:33507/api/gitprofile?profile='+pic;
-  let request = new XMLHttpRequest();
-  request.open('GET', api);
-  request.onload = function(){
-    let file = JSON.parse(request.responseText);
-    var imgReplace = document.getElementsByClassName("my-api-image")[parseInt(num)];
-      imgReplace.src = file.pic;
-  }
-  request.send();
-};
