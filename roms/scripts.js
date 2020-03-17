@@ -75,3 +75,33 @@ function collapsible(){
   let instances = M.Collapsible.init(elems, Option);
 };
 
+function terraria_server() {
+  let api = 'https://raw.githubusercontent.com/AyraHikari/MyOTA/master/api';
+  let request = new XMLHttpRequest();
+  request.open('GET', api);
+  request.onload = function() {
+    let server_api = request.responseText;
+    if (server_api != "offline") {
+      fetch('https://api.codetabs.com/v1/proxy?quest=http://' + server_api + '/v2/server/status')
+        .then(async(response) => {
+          if (response.status == 200) {
+            const api_resp = await response.json()
+            document.getElementById("tbody-terraria-status").innerHTML = `Online`;
+            document.getElementById("tbody-terraria-status").style = `color:green;`;
+            document.getElementById("tbody-terraria-world").innerHTML = api_resp.world;
+            document.getElementById("tbody-terraria-address").innerHTML = server_api.split(":")[0] + ":" + api_resp.port;
+            document.getElementById("tbody-terraria-players").innerHTML = api_resp.playercount + "/" + api_resp.maxplayers;
+            if (api_resp.serverpassword == false) {
+              document.getElementById("tbody-terraria-passwd").innerHTML = "No password needed";
+            } else {
+              document.getElementById("tbody-terraria-passwd").innerHTML = "Password needed!";
+            }
+            document.getElementById("tbody-terraria-ver").innerHTML = api_resp.serverversion;
+            document.getElementById("tbody-terraria-ver").innerHTML = api_resp.serverversion;
+            document.getElementById("tbody-terraria-uptime").innerHTML = api_resp.uptime;
+          }
+      })
+    }
+  }
+  request.send();
+};

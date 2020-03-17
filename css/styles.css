@@ -242,3 +242,15 @@ html, body, h3, h4, h5, h6, h7, div, p, a {
 #product-sans {
   font-family: "Product Sans";
 }
+
+.news-tracker-wrap {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}

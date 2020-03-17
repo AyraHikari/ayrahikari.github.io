@@ -91,10 +91,15 @@
         <main class="mdl-layout__content">
             <div class="mdl-layout__tab-panel is-active" id="home">
                 <section class="section--center mdl-grid mdl-grid--no-spacing">
+
+                    <div class="news-tracker-wrap">
+                        <h6>Terraria server is alive! <a href="#games">Check it now</a></h6>
+                    </div>
+
                     <div class="mdl-cell--12-col">
                         <!-- My Apps Project -->
                         <div>
-                            <h4><i class="fab fa-android"></i> My Apps Project</h4>
+                            <h4><a id="apps" style="color: #616161 !important"><i class="fab fa-android"></i> My Apps Project</a></h4>
                             <ul>
                                 <ul>
                                     <div>
@@ -133,7 +138,7 @@
                         <div>
                         <!-- Telegram bots -->
                         <div>
-                            <h4><i class="fab fa-telegram"></i> My Telegram Bots</h4>
+                            <h4><a id="tgbot" style="color: #616161 !important"><i class="fab fa-telegram"></i> My Telegram Bots</a></h4>
                             <ul>
                                 <ul>
                                     <div>
@@ -168,7 +173,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h4><i class="fab fa-telegram"></i> My Telegram Channels</h4>
+                            <h4><a id="tgchannel" style="color: #616161 !important"><i class="fab fa-telegram"></i> My Telegram Channels</a></h4>
                             <ul>
                                 <ul>
                                     <div>
@@ -239,7 +244,7 @@
                         </div>
                         <!-- Custom ROM -->
                         <div>
-                            <h4><i class="fab fa-android"></i> My ROM Builds</h4>
+                            <h4><a id="roms" style="color: #616161 !important"><i class="fab fa-android"></i> My ROM Builds</a></h4>
                             <ul>
                                 <ul>
                                     <div>
@@ -319,7 +324,7 @@
                         </div>
                         <!-- Others -->
                         <div>
-                            <h4><i class="fab fa-apple"></i> My Other Projects</h4>
+                            <h4><a id="others" style="color: #616161 !important"><i class="fab fa-apple"></i> My Other Projects</a></h4>
                             <ul>
                                 <ul>
                                     <div>
@@ -360,7 +365,7 @@
                         </div>
                         <!-- Server game -->
                         <div>
-                            <h4><i class="fa fa-gamepad"></i> My Games Server</h4>
+                            <h4><a id="games" style="color: #616161 !important"><i class="fa fa-gamepad"></i> My Games Server</a></h4>
                             <ul>
                                 <ul>
                                     <div>
@@ -372,31 +377,31 @@
                     <thead>
                       <tr>
                           <th>Server Status</th>
-                          <td id="tserver-color"><i id="tbody-terraria-status">Offline</i></td>
+                          <td id="tbody-terraria-status" style="color:red;">Offline</td>
                       </tr>
                       <tr>
                           <th>World Name</th>
-                          <td><i id="tbody-terraria-world">Offline</i></td>
+                          <td id="tbody-terraria-world">Offline</td>
                       </tr>
                       <tr>
                           <th>Server IP Address</th>
-                          <td><i id="tbody-terraria-ipaddr">Offline</i></td>
+                          <td id="tbody-terraria-address">Offline</td>
                       </tr>
                       <tr>
                           <th>Server Players</th>
-                          <td><i id="tbody-terraria-player">Offline</i></td>
+                          <td id="tbody-terraria-players">Offline</td>
                       </tr>
                       <tr>
                           <th>Server Password</th>
-                          <td id="tserver-pass-color"><i id="tbody-terraria-pass">Offline</i></td>
+                          <td id="tbody-terraria-passwd">Offline</td>
                       </tr>
                       <tr>
                           <th>Server Version</th>
-                          <td><i id="tbody-terraria-ver">Offline</i></td>
+                          <td id="tbody-terraria-ver">Offline</td>
                       </tr>
                       <tr>
                           <th>Server Uptime</th>
-                          <td><i id="tbody-terraria-uptime">Offline</i></td>
+                          <td id="tbody-terraria-uptime">Offline</td>
                       </tr>
                     </thead>
                     <tbody id="tbody-terraria">
@@ -467,6 +472,7 @@
     <script src="roms/scripts.js"></script>
     <script>
         getroms();
+        terraria_server();
     </script>
 
     <!-- <script>getgameserver();</script> -->
