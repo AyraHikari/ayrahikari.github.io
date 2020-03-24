@@ -132,20 +132,16 @@ function covid() {
                 ID_totalConfirmed = api_resp.areas[x].totalConfirmed;
                 ID_totalDeaths = api_resp.areas[x].totalDeaths;
                 ID_totalRecovered = api_resp.areas[x].totalRecovered;
-                ID_totalCases = ID_totalConfirmed + ID_totalDeaths + ID_totalRecovered;
               }
             }
-            totalCases = totalConfirmed + totalDeaths + totalRecovered;
 
             document.getElementById("g-totalConfirmed").innerHTML = "<b>" + nComma(totalConfirmed) + "</b> Active cases";
             document.getElementById("g-totalDeaths").innerHTML = "<b>" + nComma(totalDeaths) + "</b> Death cases";
             document.getElementById("g-totalRecovered").innerHTML = "<b>" + nComma(totalRecovered) + "</b> Recovered cases";
-            document.getElementById("g-totalCases").innerHTML = "<b>" + nComma(totalCases) + "</b> Total cases";
-
+ 
             document.getElementById("i-totalConfirmed").innerHTML = "<b>" + nComma(ID_totalConfirmed) + "</b> Active cases";
             document.getElementById("i-totalDeaths").innerHTML = "<b>" + nComma(ID_totalDeaths) + "</b> Death cases";
             document.getElementById("i-totalRecovered").innerHTML = "<b>" + nComma(ID_totalRecovered) + "</b> Recovered cases";
-            document.getElementById("i-totalCases").innerHTML = "<b>" + nComma(ID_totalCases) + "</b> Total cases";
           }
       })
     }
