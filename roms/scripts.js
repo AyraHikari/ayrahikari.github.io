@@ -137,15 +137,15 @@ function covid() {
             }
             totalCases = totalConfirmed + totalDeaths + totalRecovered;
 
-            document.getElementById("g-totalConfirmed").innerHTML = nComma(totalConfirmed) + " Active cases";
-            document.getElementById("g-totalDeaths").innerHTML = nComma(totalDeaths) + " Death cases";
-            document.getElementById("g-totalRecovered").innerHTML = nComma(totalRecovered) + " Recovered cases";
-            document.getElementById("g-totalCases").innerHTML = nComma(totalCases) + " Total cases";
+            document.getElementById("g-totalConfirmed").innerHTML = "<b>" + nComma(totalConfirmed) + "</b> Active cases";
+            document.getElementById("g-totalDeaths").innerHTML = "<b>" + nComma(totalDeaths) + "</b> Death cases";
+            document.getElementById("g-totalRecovered").innerHTML = "<b>" + nComma(totalRecovered) + "</b> Recovered cases";
+            document.getElementById("g-totalCases").innerHTML = "<b>" + nComma(totalCases) + "</b> Total cases";
 
-            document.getElementById("i-totalConfirmed").innerHTML = nComma(ID_totalConfirmed) + " Active cases";
-            document.getElementById("i-totalDeaths").innerHTML = nComma(ID_totalDeaths) + " Death cases";
-            document.getElementById("i-totalRecovered").innerHTML = nComma(ID_totalRecovered) + " Recovered cases";
-            document.getElementById("i-totalCases").innerHTML = nComma(ID_totalCases) + " Total cases";
+            document.getElementById("i-totalConfirmed").innerHTML = "<b>" + nComma(ID_totalConfirmed) + "</b> Active cases";
+            document.getElementById("i-totalDeaths").innerHTML = "<b>" + nComma(ID_totalDeaths) + "</b> Death cases";
+            document.getElementById("i-totalRecovered").innerHTML = "<b>" + nComma(ID_totalRecovered) + "</b> Recovered cases";
+            document.getElementById("i-totalCases").innerHTML = "<b>" + nComma(ID_totalCases) + "</b> Total cases";
           }
       })
     }
