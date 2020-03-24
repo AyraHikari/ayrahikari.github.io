@@ -92,8 +92,29 @@
             <div class="mdl-layout__tab-panel is-active" id="home">
                 <section class="section--center mdl-grid mdl-grid--no-spacing">
 
-                    <div class="news-tracker-wrap">
+                    <!-- <div class="news-tracker-wrap">
                         <h6>Terraria server is alive! <a href="#games">Check it now</a></h6>
+                    </div>
+                    -->
+
+                    <div class="news-tracker-wrap">
+                        <h4 style="text-align: center;">Global</h4>
+                        <ul style="text-align: center;">
+                            <li id="g-totalConfirmed">Loading...</li>
+                            <li id="g-totalDeaths">totalDeaths</li>
+                            <li id="g-totalRecovered">Loading...</li>
+                        </ul>
+                        <h6 style="text-align: center;" id="g-totalCases">Loading...</h6>
+                    </div>
+
+                    <div class="news-tracker-wrap">
+                        <h4 style="text-align: center;">Indonesia</h4>
+                        <ul style="text-align: center;">
+                            <li id="i-totalConfirmed">Loading...</li>
+                            <li id="i-totalDeaths">Loading...</li>
+                            <li id="i-totalRecovered">Loading...</li>
+                        </ul>
+                        <h6 style="text-align: center;" id="i-totalCases">Loading...</h6>
                     </div>
 
                     <div class="mdl-cell--12-col">
@@ -471,6 +492,7 @@
     </div>
     <script src="roms/scripts.js"></script>
     <script>
+        covid()
         getroms();
         terraria_server();
     </script>

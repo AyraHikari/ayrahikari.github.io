@@ -75,6 +75,10 @@ function collapsible(){
   let instances = M.Collapsible.init(elems, Option);
 };
 
+function nComma(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function terraria_server() {
   let api = 'https://raw.githubusercontent.com/AyraHikari/MyOTA/master/api';
   let request = new XMLHttpRequest();
@@ -105,3 +109,46 @@ function terraria_server() {
   }
   request.send();
 };
+
+function covid() {
+  let api = 'https://api.codetabs.com/v1/proxy?quest=https://bing.com/covid';
+  let request = new XMLHttpRequest();
+  request.open('GET', api);
+  request.onload = function() {
+    let api_ig = request.responseText.split('var ig="')[1].split('", ')[0];
+    if (api_ig) {
+      fetch('https://api.codetabs.com/v1/proxy?quest=https://bing.com/covid/data?IG=' + api_ig)
+        .then(async(response) => {
+          if (response.status == 200) {
+            const api_resp = await response.json()
+            totalConfirmed = 0;
+            totalDeaths = 0;
+            totalRecovered = 0;
+            for (x = 0; x < api_resp.areas.length; x++) {
+              totalConfirmed += api_resp.areas[x].totalConfirmed;
+              totalDeaths += api_resp.areas[x].totalDeaths;
+              totalRecovered += api_resp.areas[x].totalRecovered;
+              if (api_resp.areas[x].id == "indonesia") {
+                ID_totalConfirmed = api_resp.areas[x].totalConfirmed;
+                ID_totalDeaths = api_resp.areas[x].totalDeaths;
+                ID_totalRecovered = api_resp.areas[x].totalRecovered;
+                ID_totalCases = ID_totalConfirmed + ID_totalDeaths + ID_totalRecovered;
+              }
+            }
+            totalCases = totalConfirmed + totalDeaths + totalRecovered;
+
+            document.getElementById("g-totalConfirmed").innerHTML = nComma(totalConfirmed) + " Active cases";
+            document.getElementById("g-totalDeaths").innerHTML = nComma(totalDeaths) + " Death cases";
+            document.getElementById("g-totalRecovered").innerHTML = nComma(totalRecovered) + " Recovered cases";
+            document.getElementById("g-totalCases").innerHTML = nComma(totalCases) + " Total cases";
+
+            document.getElementById("i-totalConfirmed").innerHTML = nComma(ID_totalConfirmed) + " Active cases";
+            document.getElementById("i-totalDeaths").innerHTML = nComma(ID_totalDeaths) + " Death cases";
+            document.getElementById("i-totalRecovered").innerHTML = nComma(ID_totalRecovered) + " Recovered cases";
+            document.getElementById("i-totalCases").innerHTML = nComma(ID_totalCases) + " Total cases";
+          }
+      })
+    }
+  }
+  request.send();
+}

@@ -244,7 +244,7 @@ html, body, h3, h4, h5, h6, h7, div, p, a {
 }
 
 .news-tracker-wrap {
-  display: flex;
+  /* display: flex; */
   margin-left: auto;
   margin-right: auto;
   -webkit-tap-highlight-color: transparent;
